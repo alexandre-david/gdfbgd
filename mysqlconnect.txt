@@ -1,0 +1,13 @@
+
+How to install SQL connector for Python:
+
+http://dev.mysql.com/downloads/connector/python/
+
+Platform Independent
+(mysql-connector-python-1.0.12.tar.gz)	
+
+shell> gunzip mysql-connector-python-1.0.10.tar.gz
+shell> tar xf mysql-connector-python-1.0.10.tar
+shell> cd mysql-connector-python-1.0.10
+shell> sudo python setup.py install
+

@@ -1,0 +1,8 @@
+http://www.christianpeccei.com/textmining/
+
+https://pypi.python.org/pypi/textmining/1.0
+
+Go into the appropriate directory:
+python setup.py install
+
+DONE.

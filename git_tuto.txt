@@ -1,0 +1,7 @@
+https://help.github.com/articles/set-up-git
+
+git config --global user.name "alexandre-david"
+git config --global user.email "alexandre.david.fr@gmail.com"
+git credential-osxkeychain
+
+
