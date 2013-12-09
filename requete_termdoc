@@ -1,0 +1,39 @@
+#!/usr/bin/python
+
+import mysql.connector
+import textmining
+
+from mysql.connector import errorcode
+
+try:
+    cnx = mysql.connector.connect(user='root', password='root',
+                              host='localhost',
+                              port="8889",
+                              database='GDF')
+
+    cursor = cnx.cursor()
+    tdm = textmining.TermDocumentMatrix()
+
+    query = ("SELECT id_pers_unif, LB_ZONE_TEXT_CONS FROM requete_3")
+    cursor.execute(query)
+    for (id_pers_unif, LB_ZONE_TEXT_CONS) in cursor:
+        print("ID %s\nTEXT %s \n" % (id_pers_unif, LB_ZONE_TEXT_CONS))
+        tdm.add_doc(LB_ZONE_TEXT_CONS)
+    
+    cursor.close()
+    tdm.write_csv('term_doc_matrix.csv', cutoff=1)
+
+
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("Something is wrong with your user name or password")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("Database does not exists")
+    else:
+        print(err)
+
+else:
+    cnx.close()
+
+
+    
