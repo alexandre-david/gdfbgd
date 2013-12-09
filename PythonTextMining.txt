@@ -6,4 +6,3 @@ Go into the appropriate directory:
 python setup.py install
 
 DONE.
-TEST
